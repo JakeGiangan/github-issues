@@ -1,23 +1,29 @@
 import React from 'react';
 
-const Paginate = () => {
+const Paginate = ({ issuesPerPage, totalIssues, paginate }) => {
+  const pageNumbers = [];
+  for (let i = 1; i <= Math.ceil(totalIssues / issuesPerPage); i++) {
+    pageNumbers.push(i);
+  }
+
   return (
     <div className="row">
-      <div className="col d-xl-flex justify-content-xl-center">
+      <div className="col d-flex d-xl-flex justify-content-center justify-content-xl-center">
         <nav>
           <ul className="pagination">
-            <li className="page-item"><a className="page-link" href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-            <li className="page-item"><a className="page-link" href="#">1</a></li>
-            <li className="page-item"><a className="page-link" href="#">2</a></li>
-            <li className="page-item"><a className="page-link" href="#">3</a></li>
-            <li className="page-item"><a className="page-link" href="#">4</a></li>
-            <li className="page-item"><a className="page-link" href="#">5</a></li>
-            <li className="page-item"><a className="page-link" href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+            {pageNumbers.map(number =>
+              <li className="page-item" key={number}>
+                <a onClick={() => paginate(number)} className="page-link" href="#">{number}</a>
+              </li>
+            )}
           </ul>
         </nav>
       </div>
     </div>
   );
 };
+
+
+
 
 export default Paginate;

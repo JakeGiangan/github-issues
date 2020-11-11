@@ -7,7 +7,7 @@ const App = () => {
   const [issues, setIssues] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(5);
+  const [issuesPerPage, setIssuesPerPage] = useState(5);
 
   useEffect(() => {
     const fetchIssues = async () => {
@@ -19,6 +19,13 @@ const App = () => {
 
     fetchIssues();
   }, []);
+
+  const indexOfLastIssue = currentPage * issuesPerPage;
+  const indexOfFirstIssue = indexOfLastIssue - issuesPerPage;
+  const currentIssues = issues.slice(indexOfFirstIssue, indexOfLastIssue);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
 
   return (
     <div className="container" >
@@ -38,13 +45,13 @@ const App = () => {
                   <th className="text-center"><h1>create-react-app issues</h1></th>
                 </tr>
               </thead>
-              <TableItem issues={issues} loading={loading} />
+              <TableItem issues={currentIssues} loading={loading} />
             </table>
           </div>
         </div>
       </div>
 
-      <Paginate />
+      <Paginate issuesPerPage={issuesPerPage} totalIssues={issues.length} paginate={paginate} />
 
     </div>
   );

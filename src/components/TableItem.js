@@ -7,6 +7,7 @@ const TableItem = ({ issues, loading }) => {
       <div class="d-flex justify-content-center">
         <div class="spinner-border" role="status">
           <span class="sr-only">Loading items...</span>
+          Loading items...
         </div>
       </div>
     )
