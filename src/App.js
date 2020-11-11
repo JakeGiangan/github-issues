@@ -8,6 +8,7 @@ const App = () => {
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(5);
+
   useEffect(() => {
     const fetchIssues = async () => {
       setLoading(true);

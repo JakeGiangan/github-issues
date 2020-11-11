@@ -1,4 +1,5 @@
 import React from 'react';
+import Moment from 'react-moment';
 
 const TableItem = ({ issues, loading }) => {
   if (loading) {
@@ -13,9 +14,7 @@ const TableItem = ({ issues, loading }) => {
           <tr>
             <td key={issue.id} >
               {issue.title}
-              <br />User: {issue.user.login}
-              <br />State: {issue.state}
-              <br />Updated at: {issue.updated_at}
+              <br />#{issue.id} {issue.state} on <Moment>{issue.updated_at}</Moment> by {issue.user.login}
             </td>
           </tr>
         ))}
