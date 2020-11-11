@@ -7,7 +7,7 @@ const App = () => {
   const [issues, setIssues] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [issuesPerPage, setIssuesPerPage] = useState(5);
+  const [issuesPerPage] = useState(5);
 
   useEffect(() => {
     const fetchIssues = async () => {
