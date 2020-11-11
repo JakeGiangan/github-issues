@@ -8,6 +8,7 @@ const TableItem = ({ issues, loading }) => {
         <div class="spinner-border" role="status">
           <span class="sr-only"></span>
         </div>
+        <h4>Loading items...</h4>
       </div>
     )
   }
