@@ -1,16 +1,25 @@
 import React from 'react';
 
-const TableItem = props => {
-  console.log(props);
+const TableItem = ({ issues, loading }) => {
+  if (loading) {
+    return <div> Loading items...  </div>
+  }
+
   return (
-    <tr>
-      <td>
-        {props.issue.title}
-        <br />User: {props.issue.user.login}
-        <br />State: {props.issue.state}
-        <br />Updated at: {props.issue.updated_at}
-      </td>
-    </tr>
+
+    <tbody>
+      {
+        issues.map(issue => (
+          <tr>
+            <td key={issue.id} >
+              {issue.title}
+              <br />User: {issue.user.login}
+              <br />State: {issue.state}
+              <br />Updated at: {issue.updated_at}
+            </td>
+          </tr>
+        ))}
+    </tbody>
   );
 };
 
