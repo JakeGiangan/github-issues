@@ -20,12 +20,16 @@ const TableItem = ({ issues, loading }) => {
         issues.map(issue => (
           <tr>
             <td key={issue.id} >
-              {issue.title}
-              <br />#{issue.id} {issue.state} on <Moment>{issue.updated_at}</Moment> by {issue.user.login}
+              <a className="text-light" onClick href={issue.html_url} > {issue.title} </a>
+              {issue.labels.map(label => (
+                <span class="badge badge-primary" style={{ backgroundColor: label.color }} > { label.name}</span>
+              ))}
+              <br />#{issue.id} {issue.state} on <Moment fromNow ago>{issue.updated_at}</Moment> ago by <a className="text-info" href={issue.user.html_url} >{issue.user.login}</a>
             </td>
           </tr>
-        ))}
-    </tbody>
+        ))
+      }
+    </tbody >
   );
 };
 
