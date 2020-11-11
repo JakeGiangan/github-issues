@@ -1,6 +1,7 @@
 import React from 'react';
 import Paginate from './components/Pagination';
 import TableItem from './components/TableItem';
+import TableList from './components/TableList';
 import github from './apis/github';
 
 class App extends React.Component {
@@ -16,7 +17,7 @@ class App extends React.Component {
 
 
   render() {
-    const item = this.state.issues[0];
+    const item = this.state.issues;
     if (!item) {
       return <div>No item found</div>
     } else {
@@ -39,7 +40,7 @@ class App extends React.Component {
                     </tr>
                   </thead>
                   <tbody>
-                    <TableItem item={item} />
+                    <TableList items={item} />
                   </tbody>
                 </table>
               </div>

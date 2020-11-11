@@ -5,10 +5,10 @@ const TableItem = props => {
   return (
     <tr>
       <td>
-        {props.item.title}
-        <br />User: {props.item.user.login}
-        <br />State: {props.item.state}
-        <br />Updated at: {props.item.updated_at}
+        {props.issue.title}
+        <br />User: {props.issue.user.login}
+        <br />State: {props.issue.state}
+        <br />Updated at: {props.issue.updated_at}
       </td>
     </tr>
   );
