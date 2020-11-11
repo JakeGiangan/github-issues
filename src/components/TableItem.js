@@ -3,7 +3,13 @@ import Moment from 'react-moment';
 
 const TableItem = ({ issues, loading }) => {
   if (loading) {
-    return <div> Loading items...  </div>
+    return (
+      <div class="d-flex justify-content-center">
+        <div class="spinner-border" role="status">
+          <span class="sr-only">Loading items...</span>
+        </div>
+      </div>
+    )
   }
 
   return (
