@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Paginate from './components/Pagination';
-import TableItem from './components/TableItem';
+import TableList from './components/TableList';
 import github from './apis/github';
 
 const App = () => {
@@ -45,7 +45,7 @@ const App = () => {
                   <th className="text-center"><h1>create-react-app issues</h1></th>
                 </tr>
               </thead>
-              <TableItem issues={currentIssues} loading={loading} />
+              <TableList issues={currentIssues} loading={loading} />
             </table>
           </div>
         </div>
