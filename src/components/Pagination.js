@@ -14,6 +14,7 @@ const Paginate = ({ issuesPerPage, totalIssues, paginate }) => {
 
   if (totalIssues / issuesPerPage != 1) {
     computePageNumbers(issuesPerPage, totalIssues, paginate);
+
     return (
       <div className="row">
         <div className="col d-flex d-xl-flex justify-content-center justify-content-xl-center">
